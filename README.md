@@ -1,11 +1,11 @@
 # Hoverboard Electron-React-Redux Starter App
 
-Hoverboard is a starter app for building electron apps using React and Redux. It comes complete with example code, bootstrap and font awesome built in, and a built in systems for 
+Hoverboard is a starter app for building electron apps using React and Redux. It comes complete with example code, bootstrap, and font awesome built in, and a built in system for 
 customizable alert, confirm, and custom modal boxes based on Boostrap modals.
 
 ## Using Electron
 
-This app built using Electron, to get more info see the following: [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
+This app is built using Electron, to get more info see the following: [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
 
 ## Get Started
 
