@@ -43,6 +43,7 @@ npm run watch
 
 #To run unit tests
 npm run test
+```
 
 ## Required Installations If You use native node modules
 If your app requires native node modules that need to be built on windows, you must first download the following items, then run the build script or npm scripts:
