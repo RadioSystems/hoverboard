@@ -6,3 +6,5 @@ bin/
 tools/
 dist/
 npm-debug.log
+app/ui/app.js
+app/ui/app.js.map
