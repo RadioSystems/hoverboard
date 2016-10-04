@@ -1,0 +1,2 @@
+exports.EXAMPLE_EVENT = "EXAMPLE_EVENT";
+exports.APP_READY = "APP_READY";

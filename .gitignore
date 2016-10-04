@@ -1,0 +1,8 @@
+node_modules
+obj
+*.dat
+bin/
+.vscode/
+tools/
+dist/
+npm-debug.log

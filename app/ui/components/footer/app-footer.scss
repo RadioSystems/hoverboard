@@ -1,0 +1,22 @@
+@import "../../styles/colors.scss";
+
+$footerHeight: 40px;
+
+.app-footer{
+    height: $footerHeight;
+    z-index: 2;
+    position: relative;
+    margin-top: 15px;
+    background-color: $darkBlue;
+    color: white;
+
+    span.text-left{
+        float: left;
+        padding: 8px;
+    }
+
+     span.text-right{
+         float: right;
+         padding: 8px;
+     }
+}

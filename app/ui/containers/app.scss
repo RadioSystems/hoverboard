@@ -1,0 +1,73 @@
+@import "../styles/colors.scss";
+
+html, body{
+    min-height: 100%;
+}
+
+.wrapper{
+    min-height: 100%;
+    position:relative;
+    overflow: hidden;
+}
+
+.wrapper:before,
+.wrapper:after{
+    content: " ";
+    display: table;
+}
+
+.wrapper:after{
+    clear: both;
+}
+
+.content{
+    min-height: calc(100vh - 135px);
+    .row{
+        padding-bottom: 15px;
+    }
+}
+
+.fa{
+    font-size: 20px;
+}
+
+.centered,
+input.centered{
+    display: table;
+    margin: 0 auto;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+a.disabled,{
+    color: $darkGray;
+}
+
+a.disabled:hover{
+    cursor: not-allowed;
+}
+
+.page-header{
+    color: $blue;
+    border-bottom: none;
+    margin-bottom: 0;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.shadow-box{
+    box-shadow: 1px 1px 4px #888888;
+}
+
+input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+

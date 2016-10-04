@@ -1,0 +1,63 @@
+@import "../../styles/colors.scss";
+
+html, body{
+    background-color: $offWhite;
+}
+
+nav.navbar.navbar-default{
+    background-color: $blue;
+    padding: 10px;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    z-index: 2;
+
+    ul{
+        border-bottom: none;
+    }
+
+    li,
+    a,
+    span,
+    li a,
+    ul li a{
+        color:white;
+        font-weight: bold;
+        margin: 2px;
+    }
+
+    ul li a.disabled{
+        color: $darkGray;
+    }
+
+    li a:hover{
+        border-radius: 4px;
+        color: white;
+    }
+
+    li a.disabled:hover{
+        border: none;
+    }
+
+    li:first-child{
+        border-left: 2px solid rgb(20, 118, 203);
+    }
+    li{
+        border-right: 2px solid rgb(20, 118, 203);
+    }
+
+    .app-version{
+        color: white;
+        float: right;
+        padding-bottom: 10px;
+    }
+}
+
+.secondary-menu{
+    background-color: $darkBlue;
+    position: relative;
+    right: 235px;
+    width: 140%;
+    z-index: 2;
+    height: 42px;
+}
