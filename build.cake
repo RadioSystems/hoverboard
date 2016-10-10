@@ -4,13 +4,6 @@
 #addin nuget:?package=Cake.Powershell
 #addin nuget:?package=Cake.Json
 
-// Assembly References
-#r "tools/Addins/Microsoft.Data.OData/lib/net40/Microsoft.Data.OData.dll"
-#r "tools/Addins/Microsoft.Data.Edm/lib/net40/Microsoft.Data.Edm.dll"
-#r "tools/Addins/System.Spatial/lib/net40/System.Spatial.dll"
-#r "tools/Addins/Microsoft.Data.Services.Client/lib/net40/Microsoft.Data.Services.Client.dll"
-#r "tools/Addins/WindowsAzure.Storage/lib/net40/Microsoft.WindowsAzure.Storage.dll"
-
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
