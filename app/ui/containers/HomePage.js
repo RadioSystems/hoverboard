@@ -27,7 +27,7 @@ class HomePage extends Component{
                     <div className="col-md-8 col-md-offset-2">
                         <p>
                             This starter app gives you all the tools necessary to get an electron app built with react-redux off the ground. You can view it in action by clicking on the  
-                            <b> Movies</b> tab above. To see an example event sent to electron, click on the test button below.
+                            <b> Movies</b> tab above. It uses a mock API to simulate retrieving a list of movies. To see an example event sent to electron, click on the test button below.
                             Simply peruse the app code, and when you are comfortable, removing the existing components, routes, and actions, and wire up your own!
                         </p>
                     </div>

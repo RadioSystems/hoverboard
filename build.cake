@@ -1,8 +1,10 @@
 // Addins
 #addin nuget:?package=Cake.AzureStorage
+#addin nuget:?package=WindowsAzure.Storage
 #addin nuget:?package=Cake.Npm
 #addin nuget:?package=Cake.Powershell
 #addin nuget:?package=Cake.Json
+
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
