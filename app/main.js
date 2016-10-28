@@ -1,8 +1,10 @@
 const mainEvents = require("./mainEvents.js");
 const electron = require("electron");
+const autoUpdater = electron.autoUpdater;
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const ipcMain = electron.ipcMain;
+const appUpdateActionTypes = require("./ui/action_types/AppUpdateActionTypes.js");
 
 //Handle squirrel/autoupdate events first
 if (require("electron-squirrel-startup")) {
@@ -24,6 +26,7 @@ app.on('activate', handlOsxWindowCreation);
 function initializeApp() {
     createWindow();
     configureIpcEvents();
+    configureSquirrelUpdates();
 }
 
 function createWindow() {
@@ -56,6 +59,33 @@ function configureIpcEvents() {
             mainWindow.webContents.send(mainEvents.EXAMPLE_EVENT);
         }, 1000);
     });
+    ipcMain.on(appUpdateActionTypes.INSTALL_APP_UPDATE, () => {
+        console.log("Install app update");
+        autoUpdater.quitAndInstall();
+    });
+}
+
+function configureSquirrelUpdates(){
+    // Set you're update feed url here
+    autoUpdater.setFeedURL("http://example.feed.com");
+
+    try{
+        autoUpdater.checkForUpdates();
+    }catch(ex){
+        console.log("Failed to check for updates");
+        console.log(ex);
+    }
+
+    autoUpdater.on("update-downloaded", () => {
+        console.log("update downloaded");
+        mainWindow.webContents.send(mainEvents.APP_UPDATE_AVAILABLE);
+    });
+    
+    //Uncomment this block to see a "simulated" app update. Note that clicking on the "Restart Now" option
+    //Will throw an error since squirrel updates aren't actually configured
+    // setTimeout(() => {
+    //     mainWindow.webContents.send(mainEvents.APP_UPDATE_AVAILABLE);
+    // }, 5000);
 }
 
 function handlOsxWindowCreation() {

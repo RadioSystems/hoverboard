@@ -1,0 +1,28 @@
+.app-update-bar{
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    box-shadow: 2px 5px 10px black;
+    transition: height  1s ease, padding 1s ease;
+    overflow: hidden;
+
+    span{
+        font-size: 18px;
+    }
+
+    button.btn{
+        float: right;
+        margin-right: 10px;
+        margin-left: 10px;
+        color: rgb(75, 75, 75);
+        font-weight: bold;
+    }
+
+    button.btn:hover{
+        background-color: gray;
+    }
+}

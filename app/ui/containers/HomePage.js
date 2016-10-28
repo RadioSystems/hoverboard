@@ -30,6 +30,8 @@ class HomePage extends Component{
                             <b> Movies</b> tab above. It uses a mock API to simulate retrieving a list of movies. To see an example event sent to electron, click on the test button below.
                             Simply peruse the app code, and when you are comfortable, removing the existing components, routes, and actions, and wire up your own!
                         </p>
+                        <br/>
+                        <p>To see what an app update could look like uncomment the bottom block of code in the <b>configureSquirrelUpdates()</b> function of main.js</p>
                     </div>
                 </div>
                 <div className="row">

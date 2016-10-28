@@ -6,6 +6,7 @@ import routes from "./routes";
 import configureStore from "./store/ConfigureStore";
 import * as mainEvents from "../mainEvents";
 import * as modalTypes from "./components/modals/ModalTypes";
+import AppUpdateActions from "./actions/AppUpdateActions";
 import ModalActions from "./actions/ModalActions";
 import "./styles/buttons.scss";
 
@@ -23,6 +24,10 @@ render (
 //IPC events that have to be monitored here, because its our only global access to the store
 ipc.on(mainEvents.APP_READY, (event, arg) => {
     store.dispatch(ModalActions.showAlert("Hoverboard is Ready To Fly!"));
+});
+
+ipc.on(mainEvents.APP_UPDATE_AVAILABLE, (event, arg) => {
+    store.dispatch(AppUpdateActions.updateAvailable());
 });
 
 ipc.on(mainEvents.EXAMPLE_EVENT, (event, arg) => {
