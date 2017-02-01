@@ -56,7 +56,7 @@ Task("Build")
 Task("Package")
     .IsDependentOn("Build")
     .Does(() => {
-        Npm.RunScript(string.Format("dist:{0}", arch));
+        Npm.RunScript(string.Format("dist"));
 });
 
 Task("SetVersion")
