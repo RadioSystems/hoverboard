@@ -1,22 +1,13 @@
 const mainEvents = require("./mainEvents.js");
 const electron = require("electron");
-const autoUpdater = electron.autoUpdater;
+const autoUpdater = require("electron-auto-updater").autoUpdater;
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const ipcMain = electron.ipcMain;
 const appUpdateActionTypes = require("./ui/action_types/AppUpdateActionTypes.js");
 
 //if its production load phsyical file, if not load from hmr server
-const indexUrl = (process.env.NODE_ENV === "production") ? "file://" + __dirname + "/index.html" : 'http://localhost:3030/index.html';
-
-//Handle squirrel/autoupdate events first
-if (require("electron-squirrel-startup")) {
-    return;
-}
-if (handleSquirrelEvent()) {
-    // squirrel event handled and app will exit in 1000ms, so don't do anything else
-    return;
-}
+const indexUrl = (process.env.NODE_ENV === "development") ? 'http://localhost:3030/index.html' : "file://" + __dirname + "/index.html";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -29,7 +20,7 @@ app.on('activate', handlOsxWindowCreation);
 function initializeApp() {
     createWindow();
     configureIpcEvents();
-    configureSquirrelUpdates();
+    configureNSISUpdates();
 }
 
 function createWindow() {
@@ -68,27 +59,25 @@ function configureIpcEvents() {
     });
 }
 
-function configureSquirrelUpdates(){
-    // Set you're update feed url here
-    autoUpdater.setFeedURL("http://example.feed.com");
-
+function configureNSISUpdates(){
     try{
         autoUpdater.checkForUpdates();
     }catch(ex){
-        console.log("Failed to check for updates");
-        console.log(ex);
+        console.log("Failed to check for updates, are you running locally?");
     }
 
     autoUpdater.on("update-downloaded", () => {
         console.log("update downloaded");
         mainWindow.webContents.send(mainEvents.APP_UPDATE_AVAILABLE);
     });
-    
-    //Uncomment this block to see a "simulated" app update. Note that clicking on the "Restart Now" option
-    //Will throw an error since squirrel updates aren't actually configured
-    // setTimeout(() => {
-    //     mainWindow.webContents.send(mainEvents.APP_UPDATE_AVAILABLE);
-    // }, 5000);
+
+    autoUpdater.on("update-available", () => {
+        console.log("APP UPDATE AVAILABLE");
+    });
+
+    autoUpdater.on("download-progress", (value) => {
+        console.log(JSON.stringify(value));
+    });
 }
 
 function handlOsxWindowCreation() {
@@ -107,19 +96,8 @@ function handleOsxWindowClose() {;
     }
 }
 
-function handleSquirrelEvent() {
-    if (process.argv.length === 1) {
-        return false;
-    }
-
-    const squirrelEvent = process.argv[1];
-    if (squirrelEvent == "--squirrel-firstrun") {
-        //You can execute first time installation steps here
-    }
-}
-
 // Uncomment this code to catch global exceptions and handle them appropriately
 // process.on("uncaughtException", function(error) {
-//     //Global error handler, so that users don't see ugly js exception
+//     //Global error handler, so that users don't see ugly js exceptions
 //     console.error(error);
 // });

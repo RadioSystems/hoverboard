@@ -9,10 +9,8 @@
     "clean:win": "rimraf dist/win",
     "compile": "webpack",
     "pack": "npm run compile && build",
-    "dist": "npm run compile && build",
     "release": "npm run compile && build",
-    "dist:x64": "./node_modules/.bin/build --platform win32 --arch x64",
-    "dist:ia32": "./node_modules/.bin/build --platform win32 --arch ia32",
+    "dist": "npm run compile && build --ia32 --x64",
     "setupEnv": "npm config set msvs_version 2015",
     "watch": "webpack --watch",
     "test": "mocha app/tests/testSetup.js \"app/tests/**/*.js\" --reporter progress",
@@ -20,8 +18,15 @@
     "app": "electron ./app"
   },
   "build": {
-    "app-bundle-id": "radiosys.hoverboard",
-    "app-category-type": "public.app-category.application"
+    "appId": "radiosys.hoverboard",
+    "publish": {
+      "provider": "generic",
+      "url": "https://your.hosting.environment/electron-app/"
+    },
+    "mac": {
+      "app-category-type": "public.app-category.application"
+    },
+    "win": {}
   },
   "devDependencies": {
     "babel-core": "^6.11.4",

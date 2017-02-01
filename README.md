@@ -24,14 +24,7 @@ open powershell
 npm start
 
 # If you do not use the included build script, you can just use npm and the pre-configured npm scripts
-
-# 64 bit system
 npm install
-npm run postinstall:x64
-
-#32 bit systems
-npm install
-npm run postinstall:ia32
 
 # Run
 After one of the above steps to install dependencies is complete, and config file is copied, type "npm start" to run your electron app
@@ -44,6 +37,8 @@ npm run watch
 #To run unit tests
 npm run test
 ```
+
+## Auto Updates
 
 ## Required Installations If You use native node modules
 If your app requires native node modules that need to be built on windows, you must first download the following items, then run the build script or npm scripts:
