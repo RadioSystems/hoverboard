@@ -1,8 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "postinstall:x64": "install-app-deps",
-    "postinstall:ia32": "install-app-deps --arch ia32",
+    "postinstall": "install-app-deps",
     "start": "set NODE_ENV=production&& npm run compile && electron ./app",
     "start-dev": "set NODE_ENV=development&& npm-run-all --parallel hmr-server app",
     "clean": "rimraf dist && rimraf ./app/node_modules",
