@@ -44,8 +44,8 @@ npm run test
 ## App distribution and Auto Updates
 The hoverboard repo is enabled out of the box to build an NSIS based windows installer. Simply run either the powershell script with a target of package or the dist npm script.
 
-# powershell
 ```bash
+# powershell
 ./build.ps1 -Target package
 
 # npm script
@@ -61,11 +61,11 @@ Set the *build.publish.url* property in the development package.json to the url 
 
 **NOTE** you must roll the version number in your app *package.json* file to achieve useful auto update results. You can manage app versioning in whatever way fits your build/deployment pipeline.
 
-# installation customization
+### Installation customization
 There is an included NSIS script that can be used to customize your install and uninstall if you choose to use it. The file can be found in *build/installer.nsh*
 For more info on options for this script, see the [NSIS docs](http://nsis.sourceforge.net/Main_Page)
 
-#building for other OS platforms
+### Building for other OS platforms
 This repo is configured out of the box to build for windows systems. To build for other platforms, you will need an appropriate build environment, and you can refer to the 
 [electron-builder docs](https://github.com/electron-userland/electron-builder) for more info.
 
