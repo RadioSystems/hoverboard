@@ -36,6 +36,14 @@ class HomePage extends Component{
                 </div>
                 <div className="row">
                     <div className="col-md-12">
+                        <h3 className="text-center">Hot Module Reloading</h3>
+                    </div>
+                    <div className="col-md-8 col-md-offset-2">
+                        <p>If you're running in dev mode, make a change to the HomePage component to see Hot Module Reloading in action</p>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-12">
                         <h3 className="text-center">Send An Example Event to the Electron Process?</h3>
                     </div>
                 </div>

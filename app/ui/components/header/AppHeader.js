@@ -10,7 +10,7 @@ class AppHeader extends React.Component{
                     <div className="container-fluid">
                         <div className="navbar-header">
                             <a className="navbar-brand" href="#">
-                                <img src="./images/react-logo-transparent.png" height="40" width="40"/>
+                                <img src="./ui/images/react-logo-transparent.png" height="40" width="40"/>
                             </a>
                         </div>
                         <ul className="nav navbar-nav nav-tabs navbar-right">

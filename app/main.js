@@ -6,6 +6,9 @@ const BrowserWindow = electron.BrowserWindow;
 const ipcMain = electron.ipcMain;
 const appUpdateActionTypes = require("./ui/action_types/AppUpdateActionTypes.js");
 
+//if its production load phsyical file, if not load from hmr server
+const indexUrl = (process.env.NODE_ENV === "production") ? "file://" + __dirname + "/index.html" : 'http://localhost:3030/index.html';
+
 //Handle squirrel/autoupdate events first
 if (require("electron-squirrel-startup")) {
     return;
@@ -38,7 +41,7 @@ function createWindow() {
         minWidth: 1024,
         minHeight: 768,
     });
-    mainWindow.loadURL('file://' + __dirname + '/ui/index.html');
+    mainWindow.loadURL(indexUrl);
 
     mainWindow.webContents.on("did-finish-load", function() {
         console.log("browser window ready!");
